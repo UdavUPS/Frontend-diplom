@@ -38,3 +38,8 @@
 .menu-box__list__item:nth-child(1) {
     margin-left: 258px;
 }
+
+.menu-box__list__item__link {
+    text-decoration: inherit;
+    color: inherit;
+}

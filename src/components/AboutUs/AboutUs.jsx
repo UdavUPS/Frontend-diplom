@@ -6,7 +6,7 @@ export function AboutUs() {
 
 
     return (
-        <div className="about-us-box">
+        <div id="asd" className="about-us-box">
             <h1 className="about-us-box__title">о нас</h1>
             <div className="about-us-box__text">
                 <p>Мы рады видеть вас! Мы рботаем для Вас с 2003 года. 14 лет мы наблюдаем, как с каждым днем все больше людей заказывают жд билеты через интернет.</p>
