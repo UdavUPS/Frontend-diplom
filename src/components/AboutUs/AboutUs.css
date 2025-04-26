@@ -1,0 +1,42 @@
+.about-us-box {
+    width: 100%;
+    height: 544px;
+}
+
+.about-us-box__title {
+    width: 347px;
+    height: 41px;
+    margin-top: 144px;
+    margin-left: 258px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: #292929;
+}
+
+.about-us-box__text {
+    border-left: 9px solid #FFA800;
+    margin-left: 258px;
+    padding-left: 19px;
+    height: 231px;
+    margin-top: 33px;
+    width: 1348px;
+}
+
+.about-us-box__text > p {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #292929;
+    margin-bottom: 40px;
+}
+
+.p-highlight {
+    font-weight: bold !important;
+    margin-bottom: 0; 
+}
