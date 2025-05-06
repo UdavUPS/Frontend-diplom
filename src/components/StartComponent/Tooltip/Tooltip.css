@@ -1,0 +1,22 @@
+.tooltip-box {
+    width: 325px;
+    max-height: 255px;
+    background-color: #fff;
+    position: absolute;
+    padding: 14px 22px 15px 28px;
+    box-sizing: border-box;
+}
+
+.tooltip-box__item {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    font-variant: small-caps;
+    color: #292929;
+    cursor: pointer;
+
+
+
+}

@@ -42,7 +42,7 @@ export function Footer() {
                     <div className="footer-box__content__right__title footer-title">Подписка</div>
                     <p className="footer-box__content__right__text footer-text">Будьте в курсе событий</p>
                     <div className="footer-box__content__right__for-subscribe">
-                        <input type="email" value="e-mail" className="footer-box__content__right__for-subscribe__input" />
+                        <input type="email" placeholder="e-mail" className="footer-box__content__right__for-subscribe__input" />
                         <div className="footer-box__content__right__for-subscribe__btn">отправить</div>
                     </div>
                     <div className="footer-box__content__right__title footer-title">Подписывайтесь на нас</div>
@@ -57,7 +57,7 @@ export function Footer() {
             </div>
             <div className="footer-box__end">
                 <div className="footer-box__end__logo">Лого</div>
-                <div className="footer-box__end__back-btn"><img src={backBtn} alt="кнопка вверх" /></div> 
+                <div className="footer-box__end__back-btn"><img src={backBtn} alt="кнопка вверх" onClick={()=>{window.scrollTo({top: 0, left: 0, behavior: "smooth"});}} /></div> 
                 <div className="footer-box__end__year footer-text">2025 WEB</div>
             </div>
         </div>

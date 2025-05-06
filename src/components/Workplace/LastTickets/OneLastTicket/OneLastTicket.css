@@ -1,0 +1,99 @@
+.ticket-box {
+    width: 360px;
+    height: 161px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    box-shadow: 0 2px 2px rgba(62, 60, 65, 0.25);
+    font-family: 'Roboto';
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-bottom: 17px;
+
+}
+
+.ticket-box__top {
+    width: 322px;
+    display: flex;
+    padding: 18px 20px 29px 18px;
+    justify-content: space-between;
+}
+
+.ticket-box__top__right {
+    position: relative;
+    text-align: right;
+}
+
+.ticket-box__bottom {
+    width: 360px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket-box__bottom__left{
+    width: 92px;
+    height: 20px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 18px;
+}
+
+.ticket-box__bottom__left__wi-fi, .ticket-box__bottom__left__express, .ticket-box__bottom__left__conditioning {
+    width: 20px;
+    height: 20px;
+}
+
+.ticket-box__bottom__left__wi-fi {
+    background-image: url(./img/wi-fi.svg);
+}
+
+.ticket-box__bottom__left__express {
+    background-image: url(./img/expr.svg);
+}
+
+.ticket-box__bottom__left__conditioning {
+    background-image: url(./img/cond.svg);
+}
+
+.ticket-box__bottom__right {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    min-width: 195px;
+    min-height: 35px;
+    margin-right: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #928F94;
+    gap: 5px;
+}
+
+/* MODS */
+.cities {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 20px;
+    color: #292929;
+    text-transform: capitalize;
+    line-height: 125%;
+}
+
+.stations {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+    color: #928F94;
+}
+
+.price, .rub {
+    font-weight: 700;
+    font-size: 36px;
+    color: #FFA800;
+}
+
+.rub {
+    color: #928F94;
+}
+.pref {
+    margin-top: 12px;
+}

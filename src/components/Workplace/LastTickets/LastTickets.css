@@ -1,0 +1,14 @@
+.last-tickets-box {
+    margin-top: 94px;
+}
+
+.last-tickets-box_title {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 26px;
+}

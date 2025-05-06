@@ -1,0 +1,23 @@
+.operation-heder-cor {
+    background-image: url(./img/OperationHeader.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1920px;
+    height: 596px; 
+    margin-top: -203px;
+    z-index: -1;
+    position: relative;
+}
+
+.operation-heder-cor::before {
+    content:'';
+    background-color: #000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    opacity: 0.4;
+    z-index: 0;
+  }

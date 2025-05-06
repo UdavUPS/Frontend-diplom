@@ -1,0 +1,95 @@
+.start-component-box {
+/*     max-width: 729px;                         /* ПОД КОНТРОЛЬ
+    min-height: 574px;
+    margin-top: -582px;
+    margin-left: 958px;
+    padding-top: 79px; */                          /* ПОД КОНТРОЛЬ */
+    background-color: rgba(41, 41, 41, 0.8);
+    box-sizing: border-box;
+}
+.start-component-box__content {
+    /* min-height: 574px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.start-component-box__content__direction, .start-component-box__content__date {
+    width: 684px;
+}
+
+.start-component-box__content__date {
+    /* margin-top: 60px; */
+}
+
+.start-component-box__content__direction__iput-box, .start-component-box__content__date__iput-box {
+    display: flex;
+    justify-content: space-around;
+}
+
+.start-component-box__btn{
+    width: 323px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #FFA800;
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #292929;
+    /* margin-right: 22px; */
+    margin-left: auto;
+    margin-top: 92px;
+    padding-top: 18px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.start-component-box__btn:hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.start-component-box__btn:active {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    color: #FFA800;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #FFA800;
+}
+
+.start-component-box__btn__link {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+/* MODS */
+.start-component-box-titles{
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    margin-left: 7px;
+    margin-bottom: 22px;
+}
+
+.start-component-box-input {
+    width: 325px;
+    height: 60px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #292929;
+    padding: 18px 19px;
+    box-sizing: border-box;
+}
+
+.start-component-box__content__direction__iput-box__back__items {
+    width: 325px;
+}

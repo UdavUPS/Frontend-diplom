@@ -3,10 +3,13 @@ import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 import './App.css';
 import {Menu} from '../Menu/Menu.jsx';
 import {PrimaryHeder} from '../PrimaryHeder/PrimaryHeder.jsx';
+import {OperationHeader} from '../OperationHeader/OperationHeader.jsx';
 import {AboutUs} from '../AboutUs/AboutUs.jsx';
 import {HowItWorks} from '../HowItWorks/HowItWorks.jsx';
 import {Reviews} from '../Reviews/Reviews.jsx';
 import {Footer} from '../Footer/Footer.jsx';
+import {StartComponent} from '../StartComponent/StartComponent.jsx'
+import {Workplace} from '../Workplace/Workplace.jsx'
 
 
 export default function App() {
@@ -19,6 +22,7 @@ export default function App() {
             <div>
                 <Menu />
                 <PrimaryHeder />
+                <StartComponent type = 'folded' />
                 <AboutUs />
                 <HowItWorks />
                 <Reviews />
@@ -29,6 +33,15 @@ export default function App() {
             <Route path='/how-it-works' element={<div><Menu /><HowItWorks /></div>}/>
             <Route path='/reviews' element={<div><Menu /><Reviews /></div>}/>
             <Route path='/footer' element={<div><Menu /><Footer /></div>}/>
+            <Route path='/ticket-page' element={
+            <div>
+                <Menu /> 
+                <OperationHeader />
+                <StartComponent type = 'horizontal'/>
+                <Workplace />
+                <Footer />
+            </div>
+           } />
           
         </Routes>
       </Router>

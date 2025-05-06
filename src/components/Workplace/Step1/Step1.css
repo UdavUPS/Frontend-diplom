@@ -1,0 +1,28 @@
+.step1-filter {
+    /* border: 1px solid red; */
+    width: 959px;
+    margin: 0 auto;
+    display: flex;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    color: #928F94;
+}
+
+.step1-filter__total-count {
+    width: 468px;
+}
+
+.step1-filter__sorting {
+    width: 271px;
+}
+
+.step1-filter__show {
+    width: 220px;
+    text-align: right;
+}
+
+.step1-filter__show > span {
+    cursor: pointer;
+}

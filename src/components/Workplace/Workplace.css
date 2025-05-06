@@ -1,0 +1,31 @@
+.workplace-box {
+    width: 1920px;
+    min-height: 2550px;
+}
+
+.workplace-box__status {
+    width: 100%;
+    height: 98px;
+    background-color: #3E3C41;
+}
+
+.workplace-box__instruments {
+   /*  border: 1px solid red; */
+/*     max-width: 1405px;
+    max-height: 2093px; */
+    width: 1405px;
+    min-height: 2093px;
+    margin: 95px 256px 193px 258px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.workplace-box__instruments__left {
+    /* border: 1px solid rgb(224, 248, 8); */
+    width: 364px;
+}
+
+.workplace-box__instruments__right {
+    /* border: 1px solid rgb(36, 8, 248); */
+    width: 1556px;
+}

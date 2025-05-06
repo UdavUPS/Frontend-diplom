@@ -4,11 +4,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 1932px;
-    height: 1171px;
+    height: 574px;             /* 1171px; */
     margin-top: -203px;
     z-index: -1;
     position: relative;
-
+    padding-top: 411px;
 }
 
 .heder-cor::before {
@@ -26,7 +26,7 @@
   .heder-cor__title {
     width: 506px;
     height: 170px;
-    margin-top: 573px;
+    margin-top: 162px;          /* 573px; */
     margin-left: 348px;
     position: absolute;
     color: #FFFFFF;
