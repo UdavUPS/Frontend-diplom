@@ -81,7 +81,7 @@ export function Step1({Step, fromCity, toCity}) {
 
     function test() {
         
-            fetch( `https://students.netoservices.ru/fe-diplom/routes?from_city_id=67ceb6548c75f00047c8f78e&to_city_id=67ceb6548c75f00047c8f794&limit=${itemShow}` )
+            fetch( `https://students.netoservices.ru/fe-diplom/routes?from_city_id=67ceb6548c75f00047c8f78e&to_city_id=67ceb6548c75f00047c8f78d&limit=${itemShow}` )
             .then( response => response.json()
                 .then( data => { setElem(data.items); setTotalCount(data.total_count); Step(1);})
             );
@@ -96,7 +96,7 @@ export function Step1({Step, fromCity, toCity}) {
     },[])
 
     function updateFun(offset) {
-        fetch( `https://students.netoservices.ru/fe-diplom/routes?from_city_id=67ceb6548c75f00047c8f78e&to_city_id=67ceb6548c75f00047c8f794&limit=${itemShow}&offset=${offset}` )
+        fetch( `https://students.netoservices.ru/fe-diplom/routes?from_city_id=67ceb6548c75f00047c8f78e&to_city_id=67ceb6548c75f00047c8f78d&limit=${itemShow}&offset=${offset}` )
         .then( response => response.json()
             .then( data => { setElem(data.items);})
         );
