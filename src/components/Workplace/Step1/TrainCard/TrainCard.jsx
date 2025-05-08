@@ -1,4 +1,5 @@
 import './TrainCard.css';
+import {checTrue, msToTime} from './functionsForTrainCard.js';
 
 export function TrainCard({trainInfo}) {
 
@@ -20,20 +21,10 @@ export function TrainCard({trainInfo}) {
         haveSecondClass: trainInfo.departure.have_second_class, // Купе (true/false)
         haveFirstClass: trainInfo.departure.have_first_class, // Люкс (true/false)
         seatsInfo: trainInfo.departure.available_seats_info,  // Кол-во {Сидячее Плацкарт Купе Люкс}
-        minPrice: trainInfo.departure.price_info.fourth.bottom_price//.bottom_price, // Цены обьектом {Сидячее Плацкарт Купе Люкс} брать: .bottom_price
+        minPrice: trainInfo.departure.price_info//.bottom_price, // Цены обьектом {Сидячее Плацкарт Купе Люкс} брать: .bottom_price
     }
-    
 
-    function msToTime(duration) {
-        var milliseconds = parseInt((duration%1000)/100),
-            seconds = parseInt((duration/1000)%60),
-            minutes = parseInt((duration/(1000*60))%60),
-            hours = parseInt((duration/(1000*60*60))%24); 
-        hours = (hours < 10) ? "0" + hours : hours; 
-        minutes = (minutes < 10) ? "0" + minutes : minutes;
-        seconds = (seconds < 10) ? "0" + seconds : seconds; 
-        return hours + ":" + minutes;
-    }
+
 
     return (
         <div className="train-card-box">
@@ -53,16 +44,16 @@ export function TrainCard({trainInfo}) {
 
             </div>
             <div className="train-card-box__right">
-                <div className="train-card-box__right__item" style={ {display: dataTrain.haveFourthClass==true ?'block' : 'none'}}><p className="tr-typr">Сидячие</p> <p className="tr-volume">{trainInfo.departure.price_info.fourth.bottom_price}</p> <div className="tr-div">от <p className="tr-price">{/* {dataTrain.minPrice} */}2055</p> <p className="tr-rub">₽</p></div></div>
-                <div className="train-card-box__right__item" style={ {display: dataTrain.haveThirdClass==true ?'block' : 'none'}}><p className="tr-typr">Плацкарт</p> <p className="tr-volume">{/* dataTrain.seatsInfo.third */}</p> <div className="tr-div">от <p className="tr-price">205</p> <p className="tr-rub">₽</p></div></div>
-                <div className="train-card-box__right__item" style={ {display: dataTrain.haveSecondClass==true ?'block' : 'none'}}><p className="tr-typr">Купе</p> <p className="tr-volume">{/* dataTrain.seatsInfo.second */}</p> <div className="tr-div">от <p className="tr-price">2055</p> <p className="tr-rub">₽</p></div></div>
-                <div className="train-card-box__right__item" style={ {display: dataTrain.haveFirstClass==true ?'block' : 'none'}}><p className="tr-typr">Люкс</p> <p className="tr-volume">{/* dataTrain.seatsInfo.first */}</p> <div className="tr-div">от <p className="tr-price">2055</p> <p className="tr-rub">₽</p></div></div>
+                <div className="train-card-box__right__item" style={ {display: dataTrain.haveFourthClass==true ?'block' : 'none'}}><p className="tr-typr">Сидячие</p> <p className="tr-volume">{dataTrain.seatsInfo.fourth }</p> <div className="tr-div">от <p className="tr-price">{checTrue(dataTrain.minPrice.fourth)}</p> <p className="tr-rub">₽</p></div></div>
+                <div className="train-card-box__right__item" style={ {display: dataTrain.haveThirdClass==true ?'block' : 'none'}}><p className="tr-typr">Плацкарт</p> <p className="tr-volume">{dataTrain.seatsInfo.third}</p> <div className="tr-div">от <p className="tr-price">{checTrue(dataTrain.minPrice.third)}</p> <p className="tr-rub">₽</p></div></div>
+                <div className="train-card-box__right__item" style={ {display: dataTrain.haveSecondClass==true ?'block' : 'none'}}><p className="tr-typr">Купе</p> <p className="tr-volume">{dataTrain.seatsInfo.second}</p> <div className="tr-div">от <p className="tr-price">{checTrue(dataTrain.minPrice.second)}</p> <p className="tr-rub">₽</p></div></div>
+                <div className="train-card-box__right__item" style={ {display: dataTrain.haveFirstClass==true ?'block' : 'none'}}><p className="tr-typr">Люкс</p> <p className="tr-volume">{dataTrain.seatsInfo.first}</p> <div className="tr-div">от <p className="tr-price">{checTrue(dataTrain.minPrice.first)}</p> <p className="tr-rub">₽</p></div></div>
                     <div className="ticket-box__bottom__left mod-for-train-card">
                         <div className="ticket-box__bottom__left__wi-fi" style={ {display: dataTrain.wiFi==true ?'inline' : 'none'}}></div>
                         <div className="ticket-box__bottom__left__express" style={ {display: dataTrain.express==true ?'inline' : 'none'}}></div>
                         <div className="ticket-box__bottom__left__conditioning" style={ {display: dataTrain.conditioning==true ?'inline' : 'none'}}></div>
                     </div>
-                <div className="train-card-box__right__btn" onClick={()=>{console.log( dataTrain.minPrice)}}>Выбрать места</div>
+                <div className="train-card-box__right__btn" onClick={()=>{console.log( checTrue(dataTrain.minPrice.fourth))}}>Выбрать места</div>
             </div>
         </div>
     )
