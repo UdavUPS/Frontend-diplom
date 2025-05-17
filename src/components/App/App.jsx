@@ -42,6 +42,12 @@ export default function App() {
                 <Footer />
             </div>
            } />
+            <Route path='/last-page' element={
+            <div>
+                <Menu /> 
+                <Footer />
+            </div>
+           } />
           
         </Routes>
       </Router>

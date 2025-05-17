@@ -1,0 +1,85 @@
+.trip-details-box {
+    width: 360px;
+    /* height: 161px; */
+    background-color: #3E3C41;
+    font-family: 'Roboto';
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+.trip-details-box__title {
+    width: 100%;
+    font-weight: 500;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #E5E5E5;
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 30px;
+    /* border-bottom: 1px solid #E5E5E5; */
+
+}
+
+.trip-details-box__directions {
+    border-top: 1px solid #E5E5E5;
+    padding: 43px 36px 34px 28px;
+    cursor: pointer;
+}
+
+.trip-details-box__directions__heder {
+    display: flex;
+    align-items: baseline;
+}
+
+.trip-details-box__directions__heder__name {
+    margin-left: 12px;
+    width: 230px;
+}
+
+.trip-details-box__directions__toltip {
+    height: 263px;
+    box-sizing: border-box;
+    cursor: auto;
+}
+
+.trip-details-box__total-cost {
+    width: 100%;
+    /* height: 110px; */
+    padding: 30px 27px 33px 28px;
+    display: flex;
+    border-top: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.trip-details-box__total-cost__title {
+    font-weight: 700;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.trip-details-box__total-cost__cost {
+    font-weight: 700;
+    font-size: 48px;
+    color: #FFA800;
+}
+
+.trip-details-box__total-cost__cost > p {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 40px;
+    color: #E5E5E5;
+    margin-left: 7px;
+}
+
+
+
+/* MODS */
+.rs-titles {
+    font-weight: 400;
+    font-size: 30px;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+}

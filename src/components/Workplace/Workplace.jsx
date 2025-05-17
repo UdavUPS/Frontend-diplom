@@ -1,15 +1,79 @@
 import './Workplace.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {WorkplaceStatus} from './WorkplaceStatus/WorkplaceStatus.jsx';
 /* import {TrainCard} from './TrainCard/TrainCard.jsx'; */
 import {Step1} from './Step1/Step1.jsx';
+import {Step2} from './Step2/Step2.jsx';
+import {Step3} from './Step3/Step3.jsx';
+import {Step4} from './Step4/Step4.jsx';
 import {LastTickets} from './LastTickets/LastTickets.jsx';
 import {RequestSettings} from './RequestSettings/RequestSettings.jsx';
+import {ChoosingPlace} from './ChoosingPlace/ChoosingPlace.jsx';
+import {TripDetails} from './TripDetails/TripDetails.jsx';
+
+
 
 
 
 export function Workplace() {
-    let [step, setStep] = useState(0);
+    let [step, setStep] = useState(4);
+    let [idSelectedDirection, setIdSelectedDirection] = useState(0);
+    let [idSelectedDirectionArrival, setIdSelectedDirectionArrival] = useState(0);
+    let [showStep1, setShowStep1] = useState(false);
+    let [showStep2, setShowStep2] = useState(false);
+    let [showStep3, setShowStep3] = useState(false);
+    let [showStep4, setShowStep4] = useState(false);
+
+   /*  useEffect(()=>{
+
+          switch(step) {
+    case 0:
+            setShowStep1(false);
+            setShowStep2(false);
+            setShowStep3(false);
+            setShowStep4(false);
+      return;
+          case 1:
+            setShowStep1(true);
+            setShowStep2(false);
+            setShowStep3(false);
+            setShowStep4(false);
+      return;
+          case 2:
+            setShowStep1(false);
+            setShowStep2(true);
+            setShowStep3(false);
+            setShowStep4(false);
+      return;
+          case 3:
+            setShowStep1(false);
+            setShowStep2(false);
+            setShowStep3(true);
+            setShowStep4(false);
+      return;
+          case 4:
+            setShowStep1(false);
+            setShowStep2(false);
+            setShowStep3(false);
+            setShowStep4(true);
+      return;
+  }
+    },[step])
+ */
+    
+
+    useEffect(()=>{
+        //console.log(idSelectedDirection)
+        if (idSelectedDirection && idSelectedDirection != 0) {
+            /* fetch( `https://students.netoservices.ru/fe-diplom/routes/${idSelectedDirection}/seats` )
+            .then( response => response.json())
+            .then( data => {
+                console.log( data );
+                setShowStep1(false);
+            }); */
+             setShowStep1(false);
+        }
+    },[idSelectedDirection])
 
 
     function test() {
@@ -33,8 +97,6 @@ export function Workplace() {
     .then( response => response.json()
         .then( data => { console.log( 'routes',  data ) })
     );
-
-
     }
     
 
@@ -46,9 +108,15 @@ export function Workplace() {
                    {/*  <button onClick={test}>asdasdsa</button> */}
                     <RequestSettings style = {step > 1 ? {display: 'none'}:{}}/>
                     <LastTickets style = {step > 1 ? {display: 'none'}:{}} />
+                    <TripDetails style = {step < 2 ? {display: 'none'}:{}}/>
+                    
                 </div>
                 <div className="workplace-box__instruments__right">
-                    <Step1 Step={setStep} fromCity={'67ceb6548c75f00047c8f78'} toCity={'67ceb6548c75f00047c8f794'} />
+                    <Step1 Step={setStep} fromCity={'67ceb6548c75f00047c8f78'} toCity={'67ceb6548c75f00047c8f794'} setIdSelectedDirection = {setIdSelectedDirection} setIdSelectedDirectionArrival={setIdSelectedDirectionArrival} show={showStep1} />
+                    {/* <ChoosingPlace idDirection = {idSelectedDirection} idArrival = {idSelectedDirectionArrival}/> */}
+                    <Step2 Step={setStep} show={showStep2} quantity={3} />
+                    {/* <Step3 Step={setStep} show={showStep3} /> */}
+                    <Step4 Step={setStep} show={showStep4} />
                 </div>
             </div>
         </div>

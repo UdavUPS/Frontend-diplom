@@ -6,7 +6,7 @@ import {PageSwitcher} from './PageSwitcher/PageSwitcher.jsx';
 
 
 
-export function Step1({Step, fromCity, toCity}) {
+export function Step1({Step, fromCity, toCity, setIdSelectedDirection, setIdSelectedDirectionArrival, show }) {
     /* Step(1); */
     let [elem, setElem] = useState([]);
     let [totalCount, setTotalCount] = useState(0);
@@ -81,16 +81,16 @@ export function Step1({Step, fromCity, toCity}) {
 
     function test() {
         
-            fetch( `https://students.netoservices.ru/fe-diplom/routes?from_city_id=67ceb6548c75f00047c8f78e&to_city_id=67ceb6548c75f00047c8f78d&limit=${itemShow}` )
+            fetch( `https://students.netoservices.ru/fe-diplom/routes?from_city_id=67ceb6548c75f00047c8f78e&to_city_id=67ceb6548c75f00047c8f78d&limit=${itemShow}&date_start=2024-01-11&date_end=2024-01-12` )
             .then( response => response.json()
-                .then( data => { setElem(data.items); setTotalCount(data.total_count); Step(1);})
+                .then( data => { setElem(data.items); setTotalCount(data.total_count); /* Step(1) */; console.log(data.items)})
             );
         }
 
     useEffect(()=>{
         fetch( `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${fromCity}&to_city_id=${toCity}&limit=${itemShow}` )
         .then( response => response.json()
-        .then( data => { setElem(data.items); setTotalCount(data.total_count); Step(1);})
+        .then( data => { setElem(data.items); setTotalCount(data.total_count); /* Step(1) */;})
         .then(console.log(`https://students.netoservices.ru/fe-diplom/routes?from_city_id=${fromCity}&to_city_id=${toCity}&limit=${itemShow}`))
         );
     },[])
@@ -103,8 +103,8 @@ export function Step1({Step, fromCity, toCity}) {
     }
 
     return (
-        <>
-            <div className="step1-filter">
+        <div style={{display: show ? 'block' : 'none'}}>
+            <div className="step1-filter" >
                 <div className="step1-filter__total-count">найднно {totalCount}</div>
                 <div className="step1-filter__sorting">сортировать по: времени</div>
                 <div className="step1-filter__show">показывать по: <span onClick={()=>{setItemShow(5)}} style={itemShow==5 ? {color:'#000000'} : {color:'#928F94'}}>5</span> <span onClick={()=>{setItemShow(10)}} style={itemShow==10 ? {color:'#000000'} : {color:'#928F94'}}>10</span> <span onClick={()=>{setItemShow(20)}} style={itemShow==20 ? {color:'#000000'} : {color:'#928F94'}}>20</span></div>
@@ -113,10 +113,10 @@ export function Step1({Step, fromCity, toCity}) {
             {/* <TrainCard trainInfo = {d}/> */}
             {elem.map( e => {
                 return (
-                    <TrainCard key={e.departure._id} trainInfo = {e}/>
+                    <TrainCard key={e.departure._id} trainInfo = {e} setIdSelectedDirection = {setIdSelectedDirection} setIdSelectedDirectionArrival = {setIdSelectedDirectionArrival}/>
                 )
             })}
             <PageSwitcher totalCount={totalCount} limit={itemShow} updateFun={updateFun}/>
-        </>
+        </div>
     )
 }

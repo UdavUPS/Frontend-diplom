@@ -1,0 +1,297 @@
+.passenger-card {
+    width: 960px;
+    box-sizing: border-box;
+    border: 1px solid #C4C4C4;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    margin: 0 auto 44px auto;
+    font-family: 'Roboto';
+    line-height: 100%;
+    letter-spacing: 0%;
+
+}
+
+.passenger-card__heder {
+    width: 100%;
+    height: 107px;
+    padding: 43px 40px 32px 23px;
+    box-sizing: border-box;
+    background-color: #F9F9F9;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+
+.passenger-card__heder__title {
+    font-weight: 400;
+    font-size: 30px;
+    color: #292929;
+    margin-left: 10px;
+}
+
+.passenger-card__info {
+    width: 100%;
+    border-top: 1px dashed #928F94;
+    /* height: 250px; */
+}
+
+
+.passenger-card__info__pas-tipe__iput {
+    width: 280px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #928F94;
+    position: relative;
+    /* background: url('./img/choose.svg');
+    background-position: calc(100% - 23px) center;
+    background-repeat: no-repeat; */
+    padding-left: 13px;
+    margin: 38px 0 45px 36px;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: 24px;
+    color: #292929;
+}
+
+.passenger-card__info__pas-tipe__list {
+    position: absolute;
+    width: 280px;
+    height: 95px;
+    background-color: #F4F3F6;
+    margin-left: 36px;
+    border-radius: 5px;
+    margin-top: -95px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.passenger-card__info__pas-tipe__list__item {
+    font-weight: 400;
+    font-size: 24px;
+    color: #292929;
+    width: 100%;
+    height: 47.5px;
+    padding: 10px 0 12px 13px;
+    border-bottom: 1px solid #C4C4C4;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.passenger-card__info__nams {
+    display: flex;
+    padding-left: 36px;
+    /* height: 180px; */
+}
+
+.passenger-card__info__nams__name {
+    width: 280px;
+    gap: 25px;
+    /* border: 1px solid rebeccapurple; */
+}
+.passenger-card__info__nams__name:nth-child(2) {
+    margin: 0 25px 0 25px;
+}
+
+.passenger-card__info__nams__name__title {
+    font-weight: 400;
+    font-size: 16px;
+    color: #928F94;
+    margin-bottom: 8px;
+}
+
+.passenger-card__info__nams__name__input {
+    width: 280px;
+    height: 50px;
+    border: 1px solid #928F94;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    font-size: 24px;
+    line-height: 100%;
+    color: #292929;
+    padding-left: 15px;
+}
+
+.passenger-card__info__gender-date {
+    display: flex;
+    margin-top: 49px;
+    padding-left: 36px;
+    /* height: 180px; */
+}
+
+.passenger-card__info__gender-date__item {
+    margin-right: 35px;
+}
+
+.passenger-card__info__gender-date__item__title {
+    font-weight: 400;
+    font-size: 16px;
+    color: #928F94;
+    margin-bottom: 8px;
+}
+
+.passenger-card__info__gender-date__item__gender {
+    width: 204px;
+    height: 50px;
+    border: 1px solid #928F94;
+    border-radius: 5px;
+    display: flex;
+}
+
+.passenger-card__info__gender-date__item__gender__m,
+.passenger-card__info__gender-date__item__gender__f {
+    width: 102px;
+    height: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.passenger-card__info__gender-date__item__gender__m{
+    border-right: 1px solid #928F94;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.passenger-card__info__gender-date__item__gender__f{
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.passenger-card__info__gender-date__item__input {
+    width: 240px;
+    height: 50px;
+    border: 1px solid #928F94;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #C4C4C4;
+    padding-left: 19px;
+}
+
+.passenger-card__info__move {
+    display: flex;
+    padding: 45px 0 31px 36px;
+    align-items: center;
+    border-bottom: 1px dashed #928F94;
+}
+
+.passenger-card__info__move__iput {
+    display: none;
+}
+
+.passenger-card__info__move__check {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #928F94;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.passenger-card__info__move__text {
+    font-weight: 400;
+    font-size: 18px;
+    color: #292929;
+}
+
+.passenger-card__info__move__iput:checked + .passenger-card__info__move__check {
+    background-image: url('img/checkbox.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.passenger-card__info__doc-info {
+    width: 100%;
+    padding: 37px 0 31px 36px;
+    border-bottom: 1px dashed #928F94;
+    display: flex;
+    box-sizing: border-box;
+
+}
+
+.passenger-card__info__doc-info__doc-item {
+    margin-right: 35px;
+}
+
+.passenger-card__info__doc-info__doc-item__title {
+    font-weight: 400;
+    font-size: 18px;
+    color: #928F94;
+    margin-bottom: 10px;
+}
+
+.passenger-card__info__doc-info__doc-item__input {
+    width: 280px;
+    height: 50px;
+    border: 1px solid #928F94;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    font-size: 24px;
+    line-height: 100%;
+    color: #292929;
+    padding-left: 15px;
+    cursor: pointer;
+
+}
+
+.passenger-card__info__doc-info__doc-item__input-list {
+    position: absolute;
+    width: 300px;
+    height: 95px;
+    background-color: #F4F3F6;
+    /* margin-left: 36px; */
+    border-radius: 5px;
+    /* margin-top: -95px; */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.passenger-card__info__doc-info__doc-item__input-list__item {
+    font-weight: 400;
+    font-size: 24px;
+    color: #292929;
+    width: 100%;
+    height: 47.5px;
+    padding: 10px 0 12px 13px;
+    border-bottom: 1px solid #C4C4C4;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.passenger-card__info__footer {
+    margin: 37px 31px 28px calc(100% - 334px);
+    box-sizing: border-box;
+}
+
+.passenger-card__info__footer__btn{
+    width: 303px;
+    height: 52px;
+    border: 1px solid #292929;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* MODS */
+
+.arrow-for-input {
+    background: url('./img/choose.svg');
+    background-position: calc(100% - 23px) center;
+    background-repeat: no-repeat;
+}
+

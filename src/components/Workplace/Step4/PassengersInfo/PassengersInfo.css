@@ -1,0 +1,44 @@
+.passengers-info-box {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 28px 0 30px 43px;
+    display: flex;
+    font-family: 'Roboto';
+    line-height: 100%;
+    letter-spacing: 0%;
+    
+}
+
+.passengers-info-box__left__logo{
+    width: 68px;
+    height: 68px;
+    background-image: url(./img/pasLogo.svg);
+    margin: 0 auto 17px auto;
+}
+
+.passengers-info-box__left__text {
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+}
+
+.passengers-info-box__right {
+    margin-left: 45px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #928F94;
+}
+
+.passengers-info-box__right__name {
+    color: #292929;
+}
+
+.passengers-info-box__right__name,
+.passengers-info-box__right__gen,
+.passengers-info-box__right__birth-date,
+.passengers-info-box__right__doc {
+    height: 30px;
+}

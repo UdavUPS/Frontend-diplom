@@ -1,0 +1,70 @@
+.choosing-place-box__item__map {
+    width: 921px;
+    height: 145px;
+    margin-left: 21px;
+    margin-right: 17px;
+    background-image: url(img/EmptyCarriage.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.choosing-place-box__item__map__part-1 {
+    border: 1px solid #00000000;
+    width: 130px;
+    height: 145px;
+}
+.choosing-place-box__item__map__part-2 {
+    width: 89px;
+}
+
+.choosing-place-box__item__map__part-3 {
+    width: 85px;
+}
+
+.choosing-place-box__item__map__part-4 {
+    width: 84px;
+}
+
+.choosing-place-box__item__map__part__sit {
+    /* border: 1px solid #1b02ff; */
+    box-sizing: border-box;
+    width: calc(100% / 3);
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+/*     gap: 0;
+    margin: 0;
+    bottom: 0; */
+    cursor: pointer;
+    background-color: #F3F3F3;
+}
+
+.choosing-place-box__item__map__part__sit:hover {
+    border: 1px solid #FFA800;
+}
+
+.choosing-place-box__item__map__part__sit:nth-child(2),
+.choosing-place-box__item__map__part__sit:nth-child(5) {
+    background-color: #ffffff;
+}
+
+.choosing-place-box__item__map__part__sit:nth-child(2):hover,
+.choosing-place-box__item__map__part__sit:nth-child(5):hover {
+    border: 0;
+}
+
+
+/* MODS */
+.map-parts {
+    border: 1px solid #ffffff00;
+    height: 110px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+    /* row-gap: -30px; */
+}
