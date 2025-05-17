@@ -1,0 +1,23 @@
+.last-heder-cor {
+    background-image: url(./img/LastHeader.png);
+    background-position: -21px -300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1920px;
+    height: 834px; 
+    margin-top: -203px;
+    z-index: -1;
+    position: relative;
+}
+
+.last-heder-cor::before {
+    content:'';
+    background-color: #000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    opacity: 0.4;
+    z-index: 0;
+  }

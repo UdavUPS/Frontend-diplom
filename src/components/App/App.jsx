@@ -4,6 +4,7 @@ import './App.css';
 import {Menu} from '../Menu/Menu.jsx';
 import {PrimaryHeder} from '../PrimaryHeder/PrimaryHeder.jsx';
 import {OperationHeader} from '../OperationHeader/OperationHeader.jsx';
+import {LastHeader} from '../LastHeader/LastHeader.jsx';
 import {AboutUs} from '../AboutUs/AboutUs.jsx';
 import {HowItWorks} from '../HowItWorks/HowItWorks.jsx';
 import {Reviews} from '../Reviews/Reviews.jsx';
@@ -44,7 +45,8 @@ export default function App() {
            } />
             <Route path='/last-page' element={
             <div>
-                <Menu /> 
+                <Menu />
+                <LastHeader /> 
                 <Footer />
             </div>
            } />
