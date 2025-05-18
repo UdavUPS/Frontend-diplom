@@ -9,8 +9,9 @@ import {AboutUs} from '../AboutUs/AboutUs.jsx';
 import {HowItWorks} from '../HowItWorks/HowItWorks.jsx';
 import {Reviews} from '../Reviews/Reviews.jsx';
 import {Footer} from '../Footer/Footer.jsx';
-import {StartComponent} from '../StartComponent/StartComponent.jsx'
-import {Workplace} from '../Workplace/Workplace.jsx'
+import {StartComponent} from '../StartComponent/StartComponent.jsx';
+import {Workplace} from '../Workplace/Workplace.jsx';
+import {LastMessagePlace} from '../LastMessagePlace/LastMessagePlace.jsx';
 
 
 export default function App() {
@@ -46,7 +47,8 @@ export default function App() {
             <Route path='/last-page' element={
             <div>
                 <Menu />
-                <LastHeader /> 
+                <LastHeader />
+                <LastMessagePlace /> 
                 <Footer />
             </div>
            } />
