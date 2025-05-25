@@ -10,13 +10,14 @@ import {LastTickets} from './LastTickets/LastTickets.jsx';
 import {RequestSettings} from './RequestSettings/RequestSettings.jsx';
 import {ChoosingPlace} from './ChoosingPlace/ChoosingPlace.jsx';
 import {TripDetails} from './TripDetails/TripDetails.jsx';
+import {LDB} from './LocalDatabase.js';
 
 
 
 
 
 export function Workplace() {
-    let [step, setStep] = useState(4);
+    let [step, setStep] = useState(1);
     let [idSelectedDirection, setIdSelectedDirection] = useState(0);
     let [idSelectedDirectionArrival, setIdSelectedDirectionArrival] = useState(0);
     let [showStep1, setShowStep1] = useState(false);
@@ -24,7 +25,7 @@ export function Workplace() {
     let [showStep3, setShowStep3] = useState(false);
     let [showStep4, setShowStep4] = useState(false);
 
-   /*  useEffect(()=>{
+    useEffect(()=>{
 
           switch(step) {
     case 0:
@@ -59,7 +60,7 @@ export function Workplace() {
       return;
   }
     },[step])
- */
+
     
 
     useEffect(()=>{
@@ -113,10 +114,10 @@ export function Workplace() {
                 </div>
                 <div className="workplace-box__instruments__right">
                     <Step1 Step={setStep} fromCity={'67ceb6548c75f00047c8f78'} toCity={'67ceb6548c75f00047c8f794'} setIdSelectedDirection = {setIdSelectedDirection} setIdSelectedDirectionArrival={setIdSelectedDirectionArrival} show={showStep1} />
-                    {/* <ChoosingPlace idDirection = {idSelectedDirection} idArrival = {idSelectedDirectionArrival}/> */}
-                    <Step2 Step={setStep} show={showStep2} quantity={3} />
+                    {/* <ChoosingPlace idDirection = {idSelectedDirection} idArrival = {idSelectedDirectionArrival} /> */}
+                    {/* <Step2 Step={setStep} show={showStep2} quantity={3} /> */}
                     {/* <Step3 Step={setStep} show={showStep3} /> */}
-                    <Step4 Step={setStep} show={showStep4} />
+                    {/* <Step4 Step={setStep} show={showStep4} /> */}
                 </div>
             </div>
         </div>

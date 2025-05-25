@@ -56,7 +56,7 @@ export function TrainCard({trainInfo, setIdSelectedDirection, setIdSelectedDirec
                     <div className="train-card-box__center__direction__info"><p className="info-time">{msToTime( dataTrain.timeTo )}</p><p className="info-city">{dataTrain.cityTo}</p><p className="info-station">{dataTrain.stationTo}<br/><span style={{textTransform: 'lowercase'}}>вокзал</span></p></div>
                 </div>
 
-                <div className="train-card-box__center__direction">
+                <div className="train-card-box__center__direction" style={{display: trainInfo.arrival ? 'flex' : 'none'}}>
                     <div className="train-card-box__center__direction__info"><p className="info-time">{msToTime( dataTrain.timeFromArrival )}</p><p className="info-city">{dataTrain.cityFromArrival}</p><p className="info-station">{dataTrain.stationFromArrival}<br/><span style={{textTransform: 'lowercase'}}>вокзал</span></p></div>
                     <div className="train-card-box__center__direction__info"><p className="info-way-time">{msToTime( dataTrain.timeWayArrival )}</p><p className="info-arr">←</p></div>
                     <div className="train-card-box__center__direction__info"><p className="info-time">{msToTime( dataTrain.timeToArrival )}</p><p className="info-city">{dataTrain.cityToArrival}</p><p className="info-station">{dataTrain.stationToArrival}<br/><span style={{textTransform: 'lowercase'}}>вокзал</span></p></div>

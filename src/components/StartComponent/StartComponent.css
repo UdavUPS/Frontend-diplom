@@ -24,6 +24,10 @@
 
 .start-component-box__content__direction__iput-box, .start-component-box__content__date__iput-box {
     display: flex;
+    
+}
+
+.start-component-box__content__date__iput-box {
     justify-content: space-around;
 }
 
@@ -88,8 +92,31 @@
     color: #292929;
     padding: 18px 19px;
     box-sizing: border-box;
+    text-transform: capitalize;
+    /* margin-left: 24px; */
+}
+
+.start-component-box-input:nth-child(1) {
+    margin-left: 10px;
+}
+
+.start-component-box__content__direction__iput-box__change {
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-image: url(./img/Chen.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 15px;
 }
 
 .start-component-box__content__direction__iput-box__back__items {
     width: 325px;
+}
+
+.way-icon {
+    margin-left: -40px;
 }

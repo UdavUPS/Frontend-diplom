@@ -1,0 +1,129 @@
+/* Стили для input */
+.start-component-box-input-data {
+    width: 325px;
+    height: 60px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #292929;
+    padding: 18px 19px;
+    box-sizing: border-box;
+    display: block;
+    margin-top: -8px;
+    margin-left: -10px;
+}
+
+.start-component-box-input-data:focus {
+  margin-top: -8px;
+  margin-left: -10px;
+  outline: none;
+  box-shadow: none;
+  border-color: #ccc !important;
+}
+
+/* Иконка календаря */
+.calendar-icon {
+  position: absolute;
+  right: 8px;
+  top: 30px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 33px;
+  pointer-events: none;
+}
+
+/* Выпадающее окно календаря */
+.custom-popper {
+  width: 282px  !important;
+  height: 243px  !important;
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 3px;
+  margin-bottom: 10px;
+  /* border: 1px solid #e0e0e0 !important; */
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important; */
+}
+
+/* Треугольник-указатель */
+.react-datepicker__triangle {
+  transform: translate(160px, 0) !important; /* Центрируем */
+}
+
+/* Месяц и стрелки */
+.react-datepicker__header {
+  background-color: white !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+  /* padding-top: 15px !important; */
+}
+
+.react-datepicker__navigation {
+ /*  top: -5px !important; */
+}
+
+/* Дни */
+.react-datepicker__day {
+  margin: 0.2rem 0.35rem !important;
+  font-weight: 500;
+  font-size: 18px;
+  color: #292929;
+}
+
+/* Дни прошлого месяца (бледно-серые) */
+.react-datepicker__day--outside-month {
+  color: #ccc !important;
+  opacity: 0.6;
+}
+
+/* Дни из соседних месяцев при hover */
+.react-datepicker__day--outside-month:hover {
+  color: #7d7c7c !important;
+}
+
+.react-datepicker__day-names {
+  display: none;
+}
+
+/* .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+  padding-bottom: 5px;
+} */
+
+.react-datepicker__day--selected {
+  background-color: rgba(255, 168, 0, 0.31) !important;
+  border: 2px solid #FFA800;
+  font-weight: 500;
+  font-size: 18px;
+  color: #292929 !important;
+}
+
+.react-datepicker__day:nth-child(7n) {
+  color: #292929 !important;
+  font-weight: bold;
+}
+
+.request-settings-mod {
+    width: 300px;
+    height: 43px;
+    border-radius: 3px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #292929;
+    margin-bottom: 30px;
+    padding: 2px 8px;
+    /* margin: -18px -10px; */
+    margin-top: -18px;
+    margin-left: -10px; 
+}
+
+.request-settings-mod-icon {
+  position: absolute;
+  right: 8px;
+  top: 18px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 33px;
+  pointer-events: none;
+}
+
+

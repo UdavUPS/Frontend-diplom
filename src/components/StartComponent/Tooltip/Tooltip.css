@@ -5,6 +5,7 @@
     position: absolute;
     padding: 14px 22px 15px 28px;
     box-sizing: border-box;
+    z-index: 2;
 }
 
 .tooltip-box__item {

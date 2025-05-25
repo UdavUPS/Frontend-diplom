@@ -56,7 +56,7 @@ export function ChoosingPlace({idDirection, idArrival}) {
                 <div className="choosing-place-box__item__van-hr">
                     <div className="choosing-place-box__item__van-hr__text">11 человек выбирают места в этом поезде</div>
                 </div>
-                <VanMap />                    
+                <VanMap classType='second' vagNum={7}/>                     
             </div>
             {/* Arriva */}
             <div className="choosing-place-box__item" style={{display: idArrival ? 'block' : 'none'}}>
@@ -85,7 +85,7 @@ export function ChoosingPlace({idDirection, idArrival}) {
                 <div className="choosing-place-box__item__van-hr">
                     <div className="choosing-place-box__item__van-hr__text">11 человек выбирают места в этом поезде</div>
                 </div>
-                <VanMap />                    
+                <VanMap classType='second' vagNum={7}/>                     
             </div>
         </div>
     )

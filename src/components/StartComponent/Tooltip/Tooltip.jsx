@@ -1,6 +1,6 @@
 import './Tooltip.css';
 
-export function Tooltip ({citys, type, leftF, leftH, visibility = false}) {
+export function Tooltip ({citys, type, leftF, leftH, visibility = false, setSelestCities, setTooltipShow }) {
     let style;
 
     if (type == 'folded') {
@@ -23,7 +23,10 @@ export function Tooltip ({citys, type, leftF, leftH, visibility = false}) {
         <div className="tooltip-box" style = {style}>
             {citys.map(c => {
                 return (
-                    <div key={c._id} className="tooltip-box__item" id = {c._id}>{c.name}</div>
+                    <div key={c._id} className="tooltip-box__item" id = {c._id} onClick={() =>{
+                        setSelestCities(c.name);
+                        setTooltipShow(false);
+                    }}>{c.name}</div>
                 )
             })}
             

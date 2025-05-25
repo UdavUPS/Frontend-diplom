@@ -2,6 +2,8 @@ import './Step1.css';
 import {useState, useEffect} from 'react';
 import {TrainCard} from './TrainCard/TrainCard.jsx';
 import {PageSwitcher} from './PageSwitcher/PageSwitcher.jsx';
+/* import { tr } from 'date-fns/locale'; */
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -11,6 +13,8 @@ export function Step1({Step, fromCity, toCity, setIdSelectedDirection, setIdSele
     let [elem, setElem] = useState([]);
     let [totalCount, setTotalCount] = useState(0);
     let [itemShow, setItemShow] = useState(5);
+    let [loading, setLoading] = useState(true);
+    const location = useLocation();
 /*     let [fCity, setFromCity] = useState(fromCity);
     let [tCity, setToCity] = useState(fromCity); */
     
@@ -87,13 +91,13 @@ export function Step1({Step, fromCity, toCity, setIdSelectedDirection, setIdSele
             );
         }
 
-    useEffect(()=>{
+/*     useEffect(()=>{
         fetch( `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${fromCity}&to_city_id=${toCity}&limit=${itemShow}` )
         .then( response => response.json()
-        .then( data => { setElem(data.items); setTotalCount(data.total_count); /* Step(1) */;})
+        .then( data => { setElem(data.items); setTotalCount(data.total_count); /* Step(1) *;})
         .then(console.log(`https://students.netoservices.ru/fe-diplom/routes?from_city_id=${fromCity}&to_city_id=${toCity}&limit=${itemShow}`))
         );
-    },[])
+    },[]) */
 
     function updateFun(offset) {
         fetch( `https://students.netoservices.ru/fe-diplom/routes?from_city_id=67ceb6548c75f00047c8f78e&to_city_id=67ceb6548c75f00047c8f78d&limit=${itemShow}&offset=${offset}` )
@@ -102,6 +106,39 @@ export function Step1({Step, fromCity, toCity, setIdSelectedDirection, setIdSele
         );
     }
 
+    useEffect(() => {
+        const fetchCities = async () => {
+            try {
+                // Получаем города из URL параметров
+                const searchParams = new URLSearchParams(location.search);
+                const city1 = searchParams.get('city1');
+                const city2 = searchParams.get('city2');
+
+                // 1. Запрос для получения ID городов
+                const idsResponse = await Promise.all([
+                    fetch(`https://students.netoservices.ru/fe-diplom/routes/cities?name=${city1}`),
+                    fetch(`https://students.netoservices.ru/fe-diplom/routes/cities?name=${city2}`)
+                ]);
+
+                const idsData = await Promise.all(idsResponse.map(res => res.json()));
+
+                //console.log(idsData[0][0]._id);
+
+                fetch( `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${idsData[0][0]._id}&to_city_id=${idsData[1][0]._id}&limit=${itemShow}` )
+                .then( response => response.json())
+                .then( data => { setElem(data.items); setTotalCount(data.total_count); Step(1) ;})
+                
+            } catch (error) {
+                console.error('Error fetching cities:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchCities();
+    },[loading, location, itemShow])
+
+    if (loading) return <div>Loading...</div>;
+
     return (
         <div style={{display: show ? 'block' : 'none'}}>
             <div className="step1-filter" >
@@ -109,7 +146,7 @@ export function Step1({Step, fromCity, toCity, setIdSelectedDirection, setIdSele
                 <div className="step1-filter__sorting">сортировать по: времени</div>
                 <div className="step1-filter__show">показывать по: <span onClick={()=>{setItemShow(5)}} style={itemShow==5 ? {color:'#000000'} : {color:'#928F94'}}>5</span> <span onClick={()=>{setItemShow(10)}} style={itemShow==10 ? {color:'#000000'} : {color:'#928F94'}}>10</span> <span onClick={()=>{setItemShow(20)}} style={itemShow==20 ? {color:'#000000'} : {color:'#928F94'}}>20</span></div>
             </div>
-        <br/><button onClick={test}>Загрузить</button>
+        {/* <br/><button onClick={test}>Загрузить</button> */}
             {/* <TrainCard trainInfo = {d}/> */}
             {elem.map( e => {
                 return (

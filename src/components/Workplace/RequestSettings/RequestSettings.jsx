@@ -11,6 +11,7 @@ import timeBack from './img/timeBack.svg';
 import Plus from './img/Plus.svg'; 
 import Minus from './img/Minus.svg';
 import  {Slider}  from './Slider/Slider.jsx';
+import { CustomDatepicker } from '../../StartComponent/CustomDatepicker/CustomDatepicker.jsx';
 
 
 
@@ -43,9 +44,11 @@ export function RequestSettings({style}) {
         <div className="request-settings-box" style={style}>
             <div className="request-settings-box__dates">
                 <p className="request-settings-box__dates__title rs-titles">Дата поездки</p>
-                <input type="date" className="request-settings-box__dates__input" />
+                {/* <input type="date" className="request-settings-box__dates__input" /> */}
+                <CustomDatepicker RequestSettings={true}/>
                 <p className="request-settings-box__dates__title rs-titles">Дата возвращения</p>
-                <input type="date" className="request-settings-box__dates__input" />
+                {/* <input type="date" className="request-settings-box__dates__input" /> */}
+                <CustomDatepicker RequestSettings={true}/>
             </div>
             <div className="request-settings-box__conveniences">
                 <div className="request-settings-box__conveniences_item">

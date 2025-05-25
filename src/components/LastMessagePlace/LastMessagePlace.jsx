@@ -1,6 +1,6 @@
 import './LastMessagePlace.css';
-import Star from './img/Star.svg';
 import { Link } from 'react-router-dom';
+import StarRating from "./StarRating/StarRating.jsx";
 
 
 export function LastMessagePlace() {
@@ -38,11 +38,7 @@ export function LastMessagePlace() {
                         <div className="last-mes-cor__content__cart__footer__quality">
                             <div className="last-mes-cor__content__cart__footer__quality__messagr">Оценить сервис</div>
                             <div className="last-mes-cor__content__cart__footer__quality__stars">
-                                <img src={Star} className="last-mes-cor__content__cart__footer__quality__stars__item" />
-                                <img src={Star} className="last-mes-cor__content__cart__footer__quality__stars__item" />
-                                <img src={Star} className="last-mes-cor__content__cart__footer__quality__stars__item" />
-                                <img src={Star} className="last-mes-cor__content__cart__footer__quality__stars__item" />
-                                <img src={Star} className="last-mes-cor__content__cart__footer__quality__stars__item" />
+                                <StarRating />
                             </div>
                         </div>
                         <Link className='menu-box__list__item__link' to='/'><div className="last-mes-cor__content__cart__footer__btn">вернуться на главную</div></Link>
