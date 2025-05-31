@@ -157,8 +157,8 @@ export function Step1({Step, fromCity, toCity, setIdSelectedDirection, setIdSele
                     settings = fetchParams?.time_back?.start?.max ? settings + `&end_departure_hour_to=${fetchParams.time_back.start.max}` : settings; //Час отбытия до (число) назад
                     settings = fetchParams?.time_back?.finsh?.min ? settings + `&end_arrival_hour_from=${fetchParams.time_back.finsh.min}` : settings; //Час прибытия от (число) назад
                     settings = fetchParams?.time_back?.finsh?.max ? settings + `&end_arrival_hour_to=${fetchParams.time_back.finsh.max}` : settings; //Час прибытия до (число) назад
-                    settings = fetchParams?.dates?.date_start ? settings + `&date_start=${fetchParams.dates.date_start}` : settings;
-                    settings = fetchParams?.dates?.date_end ? settings + `&date_end=${fetchParams.dates.date_end}` : settings;
+                    settings = fetchParams?.dates?.date_start && fetchParams?.dates?.date_start != '1970-01-01' ? settings + `&date_start=${fetchParams.dates.date_start}` : settings;
+                    settings = fetchParams?.dates?.date_end && fetchParams?.dates?.date_end != '1970-01-01' ? settings + `&date_end=${fetchParams.dates.date_end}` : settings;
                     
 
 
