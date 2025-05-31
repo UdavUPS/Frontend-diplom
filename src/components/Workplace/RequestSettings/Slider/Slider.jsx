@@ -1,11 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
 import './Slider.css';
 
-export function Slider({ type }) {
+export function Slider({ type, paramSetter }) {
     const [minValue, setMinValue] = useState(type == 'time'? 0 : '1920');
     const [maxValue, setMaxValue] = useState(type == 'time'? 86400000 : '4500' );
+
+   useEffect(() => {
+        if (paramSetter) {
+            paramSetter('min', minValue);
+            paramSetter('max', maxValue);
+        }
+    }, [minValue, maxValue])
 
 
     const displayMinMax = (event) => {
@@ -30,7 +37,7 @@ export function Slider({ type }) {
         <Nouislider
             /* range={{ min: 1920, max: 7000 }} start={[1920, 4500]} */
             /* range={{ min: 0, max: 86400000 }} start={[0, 39600000]}  */    //3600000 - 1ч
-            range={type == 'time'? { min: 0, max: 86400000 } : { min: 1920, max: 7000 }}
+            range={type == 'time'? { min: 0, max: 86400000 } : { min: 0, max: 7000 }}
             start={type == 'time'? [0, 39600000] : [1920, 4500]}
             /* connect onChange={displayMinMax} */
             connect onUpdate={displayMinMax} />

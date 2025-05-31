@@ -18,6 +18,27 @@
     width: 271px;
 }
 
+.step1-filter__sorting__tooltip {
+    position: absolute;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 135px;
+    margin-top: -26.5px;
+    width: 139px;
+    height: 117px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.step1-filter__sorting__tooltip__item {
+    padding: 8px 11px 10px 7px ;
+    border-top: 1px solid #E5E5E5;
+    color: #3E3C41;
+}
+
+.step1-filter__sorting__tooltip__item:nth-child(1) {
+    border-top: none;
+}
+
 .step1-filter__show {
     width: 220px;
     text-align: right;

@@ -1,5 +1,5 @@
 import './CustomDatepicker.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { registerLocale } from "react-datepicker"; // Добавьте этот импорт
 import { ru } from 'date-fns/locale'; // Для date-fns v3
@@ -12,11 +12,24 @@ import Calendar from "./img/Calendar.svg";
 
 registerLocale("ru", ru);
 
-export function CustomDatepicker({RequestSettings=false}) {
+export function CustomDatepicker({RequestSettings=false, takeDate}) {
   const [startDate, setStartDate] = useState(null);
   let styleRS = RequestSettings ? 'request-settings-mod' : 'start-component-box-input-data';
   let styleRSicon = RequestSettings ? 'request-settings-mod-icon' : 'calendar-icon';
 
+  if (takeDate) {
+    useEffect(()=>{
+      const date = new Date(startDate);
+      takeDate(formatDateToYYYYMMDD(date))
+    },[startDate])
+  }
+
+  function formatDateToYYYYMMDD(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Месяцы 0-11 → добавляем 1
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
   
   return (
     <DatePicker

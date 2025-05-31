@@ -24,6 +24,10 @@ export function Workplace() {
     let [showStep2, setShowStep2] = useState(false);
     let [showStep3, setShowStep3] = useState(false);
     let [showStep4, setShowStep4] = useState(false);
+    let [fetchURL, setFetchURL] = useState();
+    let [fetchParams, setFetchParams] = useState();
+
+    
 
     useEffect(()=>{
 
@@ -107,13 +111,13 @@ export function Workplace() {
             <div className="workplace-box__instruments">
                 <div className="workplace-box__instruments__left">
                    {/*  <button onClick={test}>asdasdsa</button> */}
-                    <RequestSettings style = {step > 1 ? {display: 'none'}:{}}/>
+                    <RequestSettings style = {step > 1 ? {display: 'none'}:{}} setFetchParams={setFetchParams}/>
                     <LastTickets style = {step > 1 ? {display: 'none'}:{}} />
                     <TripDetails style = {step < 2 ? {display: 'none'}:{}}/>
                     
                 </div>
                 <div className="workplace-box__instruments__right">
-                    <Step1 Step={setStep} fromCity={'67ceb6548c75f00047c8f78'} toCity={'67ceb6548c75f00047c8f794'} setIdSelectedDirection = {setIdSelectedDirection} setIdSelectedDirectionArrival={setIdSelectedDirectionArrival} show={showStep1} />
+                    <Step1 Step={setStep} fromCity={'67ceb6548c75f00047c8f78'} toCity={'67ceb6548c75f00047c8f794'} setIdSelectedDirection = {setIdSelectedDirection} setIdSelectedDirectionArrival={setIdSelectedDirectionArrival} show={showStep1} fetchURL={fetchURL} setFetchURL={setFetchURL} fetchParams={fetchParams} />
                     {/* <ChoosingPlace idDirection = {idSelectedDirection} idArrival = {idSelectedDirectionArrival} /> */}
                     {/* <Step2 Step={setStep} show={showStep2} quantity={3} /> */}
                     {/* <Step3 Step={setStep} show={showStep3} /> */}
