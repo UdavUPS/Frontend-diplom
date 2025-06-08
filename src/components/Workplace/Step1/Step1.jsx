@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 
 
 
-export function Step1({Step, fromCity, toCity, setIdSelectedDirection, setIdSelectedDirectionArrival, show, fetchURL, setFetchURL, fetchParams }) {
+export function Step1({Step, setIdSelectedDirection, setIdSelectedDirectionArrival, show, fetchURL, setFetchURL, fetchParams, giveChoosingPlaceInfo }) {
     /* Step(1); */
     let [elem, setElem] = useState([]);
     let [totalCount, setTotalCount] = useState(0);
@@ -18,8 +18,6 @@ export function Step1({Step, fromCity, toCity, setIdSelectedDirection, setIdSele
     const sortToltipRef = useRef()
     let [loading, setLoading] = useState(true);
     const location = useLocation();
-/*     let [fCity, setFromCity] = useState(fromCity);
-    let [tCity, setToCity] = useState(fromCity); */
     
 
     let d = {
@@ -94,27 +92,12 @@ export function Step1({Step, fromCity, toCity, setIdSelectedDirection, setIdSele
             );
         }
 
-/*     useEffect(()=>{
-        fetch( `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${fromCity}&to_city_id=${toCity}&limit=${itemShow}` )
-        .then( response => response.json()
-        .then( data => { setElem(data.items); setTotalCount(data.total_count); /* Step(1) *;})
-        .then(console.log(`https://students.netoservices.ru/fe-diplom/routes?from_city_id=${fromCity}&to_city_id=${toCity}&limit=${itemShow}`))
-        );
-    },[]) */
-
     function updateFun(offset) {
         fetch( `https://${fetchURL}&offset=${offset}` )
         .then( response => response.json()
             .then( data => { setElem(data.items);})
         );
     }
-
-/*     useEffect(()=>{
-        fetch( `https://${fetchURL}&sort=${sort}`)
-        .then( response => response.json()
-            .then( data => { setElem(data.items);})
-        );
-    },[sort]) */
 
     useEffect(() => {
         const fetchCities = async () => {
@@ -167,13 +150,13 @@ export function Step1({Step, fromCity, toCity, setIdSelectedDirection, setIdSele
                     .then( response => response.json())
                     .then( data => { setElem(data.items); setTotalCount(data.total_count); Step(1) ;})
                     .then(setFetchURL(`students.netoservices.ru/fe-diplom/routes?from_city_id=${idsData[0][0]._id}&to_city_id=${idsData[1][0]._id}&limit=${itemShow}`))
-                    console.log(settings)
+                    /* console.log(settings) */
                 }
 
                 
                 
             } catch (error) {
-                console.error('Error fetching cities:', error);
+                console.error('Ошибка запроса:', error);
             } finally {
                 setLoading(false);
             }
@@ -181,12 +164,6 @@ export function Step1({Step, fromCity, toCity, setIdSelectedDirection, setIdSele
         fetchCities();
     },[loading, location, itemShow])
 
-    /* useEffect(()=>{
-        if (fetchParams.common.first_class) {
-            setSearchSettings(`&have_first_class=${fetchParams.common.first_class}`)
-        }
-        
-    },[fetchParams]) */
 
     if (loading) return <div>Loading...</div>;
 
@@ -207,7 +184,7 @@ export function Step1({Step, fromCity, toCity, setIdSelectedDirection, setIdSele
             {/* <TrainCard trainInfo = {d}/> */}
             {elem.map( e => {
                 return (
-                    <TrainCard key={e.departure._id} trainInfo = {e} setIdSelectedDirection = {setIdSelectedDirection} setIdSelectedDirectionArrival = {setIdSelectedDirectionArrival}/>
+                    <TrainCard key={e.departure._id} trainInfo = {e} setIdSelectedDirection = {setIdSelectedDirection} setIdSelectedDirectionArrival = {setIdSelectedDirectionArrival} giveChoosingPlaceInfo = {giveChoosingPlaceInfo} />
                 )
             })}
             <PageSwitcher totalCount={totalCount} limit={itemShow} updateFun={updateFun}/>

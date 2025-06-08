@@ -1,7 +1,9 @@
 import './TrainCard.css';
+import {useState, useEffect} from 'react';
 import {checTrue, msToTime} from './functionsForTrainCard.js';
 
-export function TrainCard({trainInfo, setIdSelectedDirection, setIdSelectedDirectionArrival}) {
+export function TrainCard({trainInfo, setIdSelectedDirection, setIdSelectedDirectionArrival, giveChoosingPlaceInfo}) {
+     let [ChoosingPlaceInfo, setChoosingPlaceInfo] = useState({});
 
     let dataTrain = {
         startCity: 'none',                           // trainInfo.arrival ? trainInfo.arrival.from.city.name :'none',
@@ -37,6 +39,48 @@ export function TrainCard({trainInfo, setIdSelectedDirection, setIdSelectedDirec
         dataTrain.stationFromArrival = trainInfo.arrival.from.railway_station_name
         dataTrain.stationToArrival = trainInfo.arrival.to.railway_station_name
     }
+
+/*     setChoosingPlaceInfo({
+        trainNum: dataTrain.trainNum,
+        cityFrom: dataTrain.cityFrom,
+        cityTo: dataTrain.cityTo,
+        Direction: {
+            timeFrom: msToTime( dataTrain.timeFrom ),
+            stationFrom: dataTrain.stationFrom,
+            timeWay: msToTime( dataTrain.timeWay ),
+            timeTo: msToTime( dataTrain.timeTo ),
+            stationTo: dataTrain.stationTo
+        },
+        Arrival: {
+            timeFromArrival: msToTime( dataTrain.timeFromArrival ),
+            stationFromArrival: dataTrain.stationFromArrival,
+            timeWayArrival: msToTime( dataTrain.timeWayArrival ),
+            timeToArrival: msToTime( dataTrain.timeToArrival ),
+            stationToArrival: dataTrain.stationToArrival
+        }
+    }); */
+
+        useEffect(() => {
+        setChoosingPlaceInfo({
+            trainNum: dataTrain.trainNum,
+            cityFrom: dataTrain.cityFrom,
+            cityTo: dataTrain.cityTo,
+            Direction: {
+                timeFrom: msToTime(dataTrain.timeFrom),
+                stationFrom: dataTrain.stationFrom,
+                timeWay: msToTime(dataTrain.timeWay),
+                timeTo: msToTime(dataTrain.timeTo),
+                stationTo: dataTrain.stationTo
+            },
+            Arrival: trainInfo.arrival ? {
+                timeFromArrival: msToTime(dataTrain.timeFromArrival),
+                stationFromArrival: dataTrain.stationFromArrival,
+                timeWayArrival: msToTime(dataTrain.timeWayArrival),
+                timeToArrival: msToTime(dataTrain.timeToArrival),
+                stationToArrival: dataTrain.stationToArrival
+            } : null
+        });
+    }, [trainInfo]); // Зависимость от trainInfo
 
 
 
@@ -76,6 +120,7 @@ export function TrainCard({trainInfo, setIdSelectedDirection, setIdSelectedDirec
                 <div className="train-card-box__right__btn" onClick={()=>{
                     setIdSelectedDirection(dataTrain.IdSelectedDirection);
                     if (dataTrain.IdSelectedArrival) {setIdSelectedDirectionArrival(dataTrain.IdSelectedArrival)};
+                    giveChoosingPlaceInfo(ChoosingPlaceInfo);
                     //console.log(trainInfo)
                     }}>Выбрать места</div>
             </div>

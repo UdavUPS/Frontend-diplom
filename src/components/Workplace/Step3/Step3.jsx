@@ -9,7 +9,7 @@ export function Step3({Step, show }) {
 
 
     return (
-        <div className="step3-box">
+        <div className="step3-box" style={{display: show ? 'block' : 'none'}}>
             <div className="step3-box__content">
                 <div className="step3-box__content__heder">Персональные данные</div>
                 <div className="step3-box__content__feelde">

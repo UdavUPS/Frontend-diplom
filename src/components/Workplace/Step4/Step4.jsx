@@ -11,7 +11,7 @@ export function Step4({Step, show }) {
 
 
     return (
-        <div className="step4-box">
+        <div className="step4-box" style={{display: show ? 'block' : 'none'}}>
             <div className="step4-box__content">
                 <div className="step4-box__content__heder">Поезд</div>
                 <div className="step4-box__content__feelde"></div>

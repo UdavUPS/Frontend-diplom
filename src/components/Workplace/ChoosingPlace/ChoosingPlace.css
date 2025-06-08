@@ -61,6 +61,53 @@
     margin-bottom: 40px;
 }
 
+.choosing-place-box__item__trin-info__part {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.choosing-place-box__item__trin-info__part:nth-child(2) {
+    border-right: 1px solid #FFFFFF;
+    padding-top: 20px;
+    width: 153px;
+}
+
+.choosing-place-box__item__trin-info__part:nth-child(3) {
+    padding-top: 28px;
+    padding-left: 38px;
+}
+.choosing-place-box__item__trin-info__part:nth-child(5) {
+    padding-top: 28px;
+}
+.choosing-place-box__item__trin-info__part:nth-child(6) {
+    border-left: 1px solid #FFFFFF;
+    margin-left: 40px;
+    display: flex;
+}
+
+.choosing-place-box__item__trin-info__part__logo {
+    margin: 47px 27px 46px 35px;
+}
+
+.choosing-place-box__item__trin-info__part__title {
+    font-weight: 700;
+    font-size: 24px;
+    color: #3E3C41;
+    margin-bottom: 10px;
+}
+
+.choosing-place-box__item__trin-info__part__text {
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    text-transform: capitalize;
+
+}
+
+.choosing-place-box__item__trin-info__part__arrow {
+    margin: 54px 50px 0 50px;
+}
+
 .choosing-place-box__item__title {
     font-weight: 700;
     font-size: 30px;
@@ -82,6 +129,9 @@
     width: calc(100% / 3);
     height: 192px;
     margin-top: 26px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 255, 255);
 }
 
 .choosing-place-box__item__quantity__item__input {
@@ -96,6 +146,7 @@
     color: #292929;
     margin: 20px auto 23px auto;
     display: block;
+    background-color: #fff;
 }
 
 .choosing-place-box__item__quantity__item__explanation {
@@ -130,6 +181,18 @@
     height: 37px;
     box-sizing: border-box;
     background-color: rgba(255, 168, 0, 0.44);
+    color: #000000;
+    font-weight: 400;
+    font-size: 18px;
+    padding-left: 34px;
+    line-height: 37px;
+}
+
+.choosing-place-box__item__van-num__nums {
+    font-weight: 700;
+    font-size: 24px;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 .choosing-place-box__item__van-info {
@@ -138,11 +201,97 @@
     box-sizing: border-box;
     display: flex;
 }
+
+
 .choosing-place-box__item__van-info__num {
     width: 190px;
     height: 161px;
     background-color: rgba(255, 168, 0, 0.44);
+    font-weight: 700;
+    font-size: 72px;
+    padding-top: 46px;
+    padding-left: 45px;
+    box-sizing: border-box;
 }
+
+.choosing-place-box__item__van-info__num__text{
+    font-weight: 400;
+    font-size: 24px;
+    margin-top: 24px;
+}
+
+.choosing-place-box__item__van-info__sits {
+    width: 527px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.choosing-place-box__item__van-info__sits__box {
+    width:286px;
+    height: 100%;
+    box-sizing: border-box;
+    padding-left: 85px;
+    padding-top: 33px;
+}
+
+.choosing-place-box__item__van-info__sits__box__title {
+    font-weight: 400;
+    font-size: 18px;
+    color: #928F94;
+}
+
+.choosing-place-box__item__van-info__sits__box__title__span {
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+}
+
+.choosing-place-box__item__van-info__sits__box__text,
+.choosing-place-box__item__van-info__sits__box__cost {
+    font-weight: 400;
+    font-size: 24px;
+    color: #000000;
+    margin-top: 21px;
+}
+
+.choosing-place-box__item__van-info__sits__box__cost {
+    font-weight: 700;
+}
+
+.choosing-place-box__item__van-info__sits__box__cost::after {
+    content: ' ₽';
+    color: #928F94;
+    font-weight: 400;
+}
+
+.choosing-place-box__item__van-info__service {
+    height: 100%;
+    width: 200px;
+    box-sizing: border-box;
+    padding-top: 33px;
+}
+
+.choosing-place-box__item__van-info__service_btns {
+    display: flex;
+    gap: 13px;
+    margin-top: 17px;
+    /* justify-content: space-around; */
+}
+.choosing-place-box__item__van-info__service_btns__item {
+    width: 36px;
+    height: 34.105262756347656px;
+    border: 1px solid #292929;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choosing-place-box__item__van-info__service_btns__item:hover {
+    background-color: #FFA800;
+} 
 
 .choosing-place-box__item__van-hr {
     width: 100%;
@@ -158,4 +307,59 @@
     display: flex;
     text-align: center;
     align-items: center;
+}
+
+.choosing-place-box__btn-to-go {
+    width: 222px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #FFA800;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    /* text-align: center; */
+    text-transform: uppercase;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-top: 50px;
+    border: 1px solid #FFA800;
+}
+
+.choosing-place-box__btn-to-go:hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.choosing-place-box__btn-to-go:active {
+    border: 1px solid #FFA800;
+    background-color: #fff;
+    color: #FFA800;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* MODS */
+.grey-text {
+    color: #928F94;
+}
+
+.text-blokc {
+    margin-top: 47px;
+    margin-left: -17px;
+}
+
+.btn-included {
+    opacity: 0.5;
+    background-color: #FFA800;
+    cursor: auto;
+}
+
+.btn-selected {
+    background-color: #FFA800;
+    border: 1px solid #FFA800;
 }

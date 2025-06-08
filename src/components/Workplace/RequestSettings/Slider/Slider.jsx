@@ -38,7 +38,7 @@ export function Slider({ type, paramSetter }) {
             /* range={{ min: 1920, max: 7000 }} start={[1920, 4500]} */
             /* range={{ min: 0, max: 86400000 }} start={[0, 39600000]}  */    //3600000 - 1ч
             range={type == 'time'? { min: 0, max: 86400000 } : { min: 0, max: 7000 }}
-            start={type == 'time'? [0, 39600000] : [1920, 4500]}
+            start={type == 'time'? [0, 39600000] : [0, 6900]}
             /* connect onChange={displayMinMax} */
             connect onUpdate={displayMinMax} />
     );

@@ -26,6 +26,21 @@ export function Workplace() {
     let [showStep4, setShowStep4] = useState(false);
     let [fetchURL, setFetchURL] = useState();
     let [fetchParams, setFetchParams] = useState();
+    let [ChoosingPlaceInfo, setChoosingPlaceInfo] = useState();
+    let [tiketInfo, setTiketInfo] = useState({
+        tiketsType: {
+            adult: 0,
+            kid: 0,
+            kidNoSid: 0
+        },
+        totalCost: 0
+    });
+
+
+
+    /* useEffect(()=>{}) */
+    
+    
 
     
 
@@ -117,11 +132,11 @@ export function Workplace() {
                     
                 </div>
                 <div className="workplace-box__instruments__right">
-                    <Step1 Step={setStep} fromCity={'67ceb6548c75f00047c8f78'} toCity={'67ceb6548c75f00047c8f794'} setIdSelectedDirection = {setIdSelectedDirection} setIdSelectedDirectionArrival={setIdSelectedDirectionArrival} show={showStep1} fetchURL={fetchURL} setFetchURL={setFetchURL} fetchParams={fetchParams} />
-                    {/* <ChoosingPlace idDirection = {idSelectedDirection} idArrival = {idSelectedDirectionArrival} /> */}
-                    {/* <Step2 Step={setStep} show={showStep2} quantity={3} /> */}
-                    {/* <Step3 Step={setStep} show={showStep3} /> */}
-                    {/* <Step4 Step={setStep} show={showStep4} /> */}
+                    <Step1 Step={setStep} setIdSelectedDirection = {setIdSelectedDirection} setIdSelectedDirectionArrival={setIdSelectedDirectionArrival} show={showStep1} fetchURL={fetchURL} setFetchURL={setFetchURL} fetchParams={fetchParams} giveChoosingPlaceInfo = {setChoosingPlaceInfo} />
+                    <ChoosingPlace idDirection = {idSelectedDirection} idArrival = {idSelectedDirectionArrival} ChoosingPlaceInfo = {ChoosingPlaceInfo} toNextStep = {setStep} show={showStep1} step={step} setTiketInfo = {setTiketInfo}/>
+                    <Step2 Step={setStep} show={showStep2} quantity={3} />
+                    <Step3 Step={setStep} show={showStep3} />
+                    <Step4 Step={setStep} show={showStep4} />
                 </div>
             </div>
         </div>
