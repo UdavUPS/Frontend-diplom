@@ -20,11 +20,13 @@ artifacts:
   - path: dist\**
     name: app-build
 
-deployment:
+# Правильная секция деплоя
+deploy:
   provider: GitHub
-  artifact: app-build
+  artifact: app-build  # Должно совпадать с именем в artifacts
   draft: false
+  description: "Automatic deployment"
   auth_token:
-    secure: Frontend-diplom
+    secure: Frontend-diplom  # Зашифруйте в настройках AppVeyor
   on:
     branch: main
