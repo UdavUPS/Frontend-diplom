@@ -1,9 +1,11 @@
 import './LastMessagePlace.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import StarRating from "./StarRating/StarRating.jsx";
 
 
 export function LastMessagePlace() {
+    const location = useLocation();
+    const payerInf = location.state || {};
 
 
     return (
@@ -12,7 +14,7 @@ export function LastMessagePlace() {
                 <div className="last-mes-cor__content__title">Благодарим Вас за заказ!</div>
                 <div className="last-mes-cor__content__cart">
                     <div className="last-mes-cor__content__cart__heder">
-                        <div className="last-mes-cor__content__cart__heder__num">№Заказа 285АА</div>
+                        <div className="last-mes-cor__content__cart__heder__num">№Заказа {Math.floor(Math.random() * 1000)}АА</div>
                         <div className="last-mes-cor__content__cart__heder__cost"><p style={{fontWeight: '400', color: '#928F94', marginRight:'8px'}}>сумма</p><p>7760</p><p style={{fontWeight: '400', color: '#928F94', marginLeft:'8px'}}>₽</p></div>
                     </div>
                     <div className="last-mes-cor__content__cart__tip">
@@ -30,7 +32,7 @@ export function LastMessagePlace() {
                         </div>
                     </div>
                     <div className="last-mes-cor__content__cart__content">
-                        <div className="last-mes-cor__content__cart__content__pas-name">Ирина Эдуардовна!</div>
+                        <div className="last-mes-cor__content__cart__content__pas-name">{payerInf._name} {payerInf.oName}!</div>
                         <div className="last-mes-cor__content__cart__content__message">Ваш заказ успешно оформлен.<br /> В ближайшее время с вами свяжется наш оператор для подтверждения.</div>
                         <div className="last-mes-cor__content__cart__content__thanks">Благодарим Вас за оказанное доверие и желаем приятного путешествия!</div>
                     </div>

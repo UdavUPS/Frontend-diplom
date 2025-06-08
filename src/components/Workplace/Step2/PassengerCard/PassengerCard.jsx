@@ -7,17 +7,28 @@ import pgPlus from './img/pg-plus.svg'
 
 
 
-export function PassengerCard({cardNum }) {
+export function PassengerCard({cardNum, Ready }) {
     let [showCardInfo, setShowCardInfo] = useState(false);
     let [showList, setShowList] = useState(false);
     let [showListDoc, setShowListDoc] = useState(false);
     let [DocType, setDocType] = useState(undefined);
     let [gender, setGender] = useState('m');
+    let [fName, setfName] = useState();
+    let [name, setName] = useState();
+    let [oName, setoName] = useState(); 
+    let [reportStatus, setReportStatus] = useState(false);
     const inputRef = useRef(null);
     const inputRefDoc = useRef(null);
 
 
-    
+    function checkInf() {
+        if (fName && name && oName && !reportStatus) {
+            /* Ready(items.concat(1)); */
+            Ready(prev => [...prev, 1]);
+            setReportStatus(true)
+            /* console.log(111) */
+        }
+    }
 
     function openCard () {
         if (showCardInfo) {
@@ -88,16 +99,16 @@ export function PassengerCard({cardNum }) {
                 </div>
                 <div className="passenger-card__info__nams">
                     <div className="passenger-card__info__nams__name">
-                        <div className="passenger-card__info__nams__name__title">Фамилия</div>
-                        <input type="text" className="passenger-card__info__nams__name__input" />
+                        <div className="passenger-card__info__nams__name__title" >Фамилия</div>
+                        <input type="text" className="passenger-card__info__nams__name__input" onChange={(e) => {setfName(e.target.value)}}/>
                     </div>
                     <div className="passenger-card__info__nams__name">
                          <div className="passenger-card__info__nams__name__title">Имя</div>
-                        <input type="text" className="passenger-card__info__nams__name__input" />
+                        <input type="text" className="passenger-card__info__nams__name__input" onChange={(e) => {setName(e.target.value)}}/>
                     </div>
                     <div className="passenger-card__info__nams__name">
                         <div className="passenger-card__info__nams__name__title">Отчество</div>
-                        <input type="text" className="passenger-card__info__nams__name__input" />
+                        <input type="text" className="passenger-card__info__nams__name__input" onChange={(e) => {setoName(e.target.value)}}/>
                     </div>
                 </div>
                 <div className="passenger-card__info__gender-date">
@@ -140,8 +151,8 @@ export function PassengerCard({cardNum }) {
                         <input type="text" className="passenger-card__info__doc-info__doc-item__input" placeholder="_ _ _ _ _ _ _" />
                     </div>
                 </div>
-                <div className="passenger-card__info__footer">
-                    <div className="passenger-card__info__footer__btn">Следующий пассажир</div>
+                <div className="passenger-card__info__footer"  style={{backgroundColor: reportStatus ? '#B2F6A1' : '#FF3D0061'}}>
+                    <div className="passenger-card__info__footer__btn"  onClick={checkInf}>Следующий пассажир</div>
                 </div>
             </div>
             

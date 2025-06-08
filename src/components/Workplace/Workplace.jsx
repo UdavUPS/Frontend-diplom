@@ -33,8 +33,20 @@ export function Workplace() {
             kid: 0,
             kidNoSid: 0
         },
-        totalCost: 0
+        totalCost: 0,
+        costs: {
+            adult: 0,
+            kid: 0
+        }
     });
+     let [payerInf, setPayerInf] = useState({
+        fName: undefined,
+        _name: undefined,
+        oName: undefined,
+        telephone: undefined,
+        email: undefined,
+        typePay: undefined
+     });
 
 
 
@@ -128,15 +140,15 @@ export function Workplace() {
                    {/*  <button onClick={test}>asdasdsa</button> */}
                     <RequestSettings style = {step > 1 ? {display: 'none'}:{}} setFetchParams={setFetchParams}/>
                     <LastTickets style = {step > 1 ? {display: 'none'}:{}} />
-                    <TripDetails style = {step < 2 ? {display: 'none'}:{}}/>
+                    <TripDetails ChoosingPlaceInfo = {ChoosingPlaceInfo} tiketInfo = {tiketInfo} style = {step < 2 ? {display: 'none'}:{}}/>
                     
                 </div>
                 <div className="workplace-box__instruments__right">
                     <Step1 Step={setStep} setIdSelectedDirection = {setIdSelectedDirection} setIdSelectedDirectionArrival={setIdSelectedDirectionArrival} show={showStep1} fetchURL={fetchURL} setFetchURL={setFetchURL} fetchParams={fetchParams} giveChoosingPlaceInfo = {setChoosingPlaceInfo} />
                     <ChoosingPlace idDirection = {idSelectedDirection} idArrival = {idSelectedDirectionArrival} ChoosingPlaceInfo = {ChoosingPlaceInfo} toNextStep = {setStep} show={showStep1} step={step} setTiketInfo = {setTiketInfo}/>
-                    <Step2 Step={setStep} show={showStep2} quantity={3} />
-                    <Step3 Step={setStep} show={showStep3} />
-                    <Step4 Step={setStep} show={showStep4} />
+                    <Step2 Step={setStep} show={showStep2} quantity={tiketInfo.tiketsType.adult + tiketInfo.tiketsType.kid + tiketInfo.tiketsType.kidNoSid} />
+                    <Step3 Step={setStep} show={showStep3} setPayerInf ={setPayerInf}  />
+                    <Step4 Step={setStep} show={showStep4} tiketInfo = {tiketInfo} payerInf={payerInf} />
                 </div>
             </div>
         </div>

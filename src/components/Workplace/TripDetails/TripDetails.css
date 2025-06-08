@@ -37,9 +37,23 @@
 }
 
 .trip-details-box__directions__toltip {
-    height: 263px;
+    /* height: 263px; */
     box-sizing: border-box;
     cursor: auto;
+    padding-top: 40px;
+}
+
+.trip-details-box__directions__toltip__item {
+    width: 305px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #E5E5E5;
+    margin-bottom: 22px;
 }
 
 .trip-details-box__total-cost {
@@ -82,4 +96,14 @@
     font-size: 30px;
     color: #FFFFFF;
     margin-bottom: 16px;
+}
+
+.mod-for-time {
+    margin-bottom: 5px;
+    margin-left: 43%;
+    margin-right: auto;
+}
+
+.line-mod {
+    margin-bottom: 2px;
 }

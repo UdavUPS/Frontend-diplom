@@ -28,6 +28,8 @@ import mugSel from './img/mugSel.svg';
 export function ChoosingPlace({idDirection, idArrival, ChoosingPlaceInfo, toNextStep, show, step, setTiketInfo}) {
     let [Direction, setDirection] = useState();
     let [tiketTotalCost, setTiketTotalCost] = useState(0);
+    let [tiketAdultCost, setTiketAdultCost] = useState(0);
+    let [tiketKidCost, setTiketKidCost] = useState(0);
     let [Arrival, setArrival] = useState();
     let [numSelectedVanDir, setNumSelectedVanDir] = useState(1);
     let [numbersVanDir, setNumbersVanDir] = useState([]);
@@ -117,6 +119,24 @@ export function ChoosingPlace({idDirection, idArrival, ChoosingPlaceInfo, toNext
         }))
     }
 
+    function copypassengers() {
+        let adult = quantitySit.dir.adult + quantitySit.arr.adult;
+        let kid = quantitySit.dir.kid + quantitySit.arr.kid;
+        let kidNoSid = quantitySit.dir.kidNoSid + quantitySit.arr.kidNoSid;
+        setTiketInfo((inf)=>({
+            ...inf,
+            tiketsType: {
+                adult: adult,
+                kid: kid,
+                kidNoSid: kidNoSid
+            },
+            costs: {
+                adult: tiketAdultCost,
+                kid: tiketKidCost
+            }
+        }))
+    }
+
     useEffect(() => {
         if (selectedPlace.Dir.length != 0) {
             let cost = 0;
@@ -131,27 +151,34 @@ export function ChoosingPlace({idDirection, idArrival, ChoosingPlaceInfo, toNext
             if (services.underwear.selected || services.underwear.included) {cost = cost + Direction?.[numSelectedVanDir - 1]?.coach?.linens_price}
             if (services.mug.selected || services.mug.included) {cost = cost + 10}
 
-            if (selectedTiketType.dir.adult) {setQuantitySit((p) => ({
-                ...p,
-                dir: {
-                    ...p.dir,
-                    adult: p.dir.adult++
-                }
-            }))}
-            if (selectedTiketType.dir.kid) {setQuantitySit((p) => ({
-                ...p,
-                dir: {
-                    ...p.dir,
-                    kid: p.dir.kid++
-                }
-            }))}
-            if (selectedTiketType.dir.kidNoSid) {setQuantitySit((p) => ({
-                ...p,
-                dir: {
-                    ...p.dir,
-                    kidNoSid: p.dir.kidNoSid++
-                }
-            }))
+            if (selectedTiketType.dir.adult) {
+                setQuantitySit((p) => ({
+                    ...p,
+                    dir: {
+                        ...p.dir,
+                        adult: p.dir.adult++
+                    }
+                }))
+                setTiketAdultCost(tiketAdultCost + cost)
+            }
+            if (selectedTiketType.dir.kid) {
+                setQuantitySit((p) => ({
+                    ...p,
+                    dir: {
+                        ...p.dir,
+                        kid: p.dir.kid++
+                    }
+                }))
+                setTiketKidCost(tiketKidCost + cost)
+            }
+            if (selectedTiketType.dir.kidNoSid) {
+                setQuantitySit((p) => ({
+                    ...p,
+                    dir: {
+                        ...p.dir,
+                        kidNoSid: p.dir.kidNoSid++
+                    }
+                }))
             cost = 0
             }
 
@@ -176,34 +203,38 @@ export function ChoosingPlace({idDirection, idArrival, ChoosingPlaceInfo, toNext
             if (services.underwear.selectedArr || services.underwear.includedArr) {cost = cost + Arrival?.[numSelectedVanDir - 1]?.coach?.linens_price}
             if (services.mug.selectedArr || services.mug.includedArr) {cost = cost + 10}
 
-            if (selectedTiketType.arr.adult) {setQuantitySit((p) => ({
-                ...p,
-                arr: {
-                    ...p.arr,
-                    adult: p.arr.adult++
-                }
-            }))}
-            if (selectedTiketType.arr.kid) {setQuantitySit((p) => ({
-                ...p,
-                arr: {
-                    ...p.arr,
-                    kid: p.arr.kid++
-                }
-            }))}
-            if (selectedTiketType.arr.kidNoSid) {setQuantitySit((p) => ({
-                ...p,
-                arr: {
-                    ...p.arr,
-                    kidNoSid: p.arr.kidNoSid++
-                }
-            }))
+            if (selectedTiketType.arr.adult) {
+                setQuantitySit((p) => ({
+                    ...p,
+                    arr: {
+                        ...p.arr,
+                        adult: p.arr.adult++
+                    }
+                }))
+                setTiketAdultCost(tiketAdultCost + cost)
+            }
+            if (selectedTiketType.arr.kid) {
+                setQuantitySit((p) => ({
+                    ...p,
+                    arr: {
+                        ...p.arr,
+                        kid: p.arr.kid++
+                    }
+                }))
+                setTiketKidCost(tiketKidCost + cost)
+            }
+            if (selectedTiketType.arr.kidNoSid) {
+                setQuantitySit((p) => ({
+                    ...p,
+                    arr: {
+                        ...p.arr,
+                        kidNoSid: p.arr.kidNoSid++
+                    }
+                }))
             cost = 0
             }
 
             setTiketTotalCost(tiketTotalCost + cost);
-
-            console.log (cost);
-            console.log (tiketTotalCost );
         }
     }, [selectedPlace.Arr])
 
@@ -530,7 +561,13 @@ export function ChoosingPlace({idDirection, idArrival, ChoosingPlaceInfo, toNext
                 </div>
                 <VanMap classType={Arrival?.[numSelectedVanArr - 1]?.coach?.class_type} vagNum={numSelectedVanArr} places={Arrival?.[numSelectedVanArr - 1]?.seats}  addNewPlace = {addNewPlace} way = 'Arr'/>                    
             </div>
-            <div className="choosing-place-box__btn-to-go" onClick={() => {toNextStep(2)}}>ДАЛЕЕ</div>
+            <div className="choosing-place-box__btn-to-go" style={{backgroundColor: selectedPlace.Dir.length == 0 ? '#928F94' : '', border: selectedPlace.Dir.length == 0 ? '#928F94' : '',}} onClick={() => {
+                if(selectedPlace.Dir.length != 0){
+                    toNextStep(2); 
+                    copypassengers(); 
+                    window.scrollTo(0, 150)
+                }
+                }}>ДАЛЕЕ</div>
         </div>
         </div >
     )
