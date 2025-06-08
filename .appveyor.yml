@@ -1,40 +1,30 @@
-# Используем образ Windows с Node.js
 image: Visual Studio 2022
-
-# Отключаем стандартную сборку MSBuild
 build: off
 
-# Ветки для триггера сборки
 branches:
   only:
-    - main  # или master
+    - main
 
-# Кэшируем node_modules для ускорения
 cache:
   - node_modules -> package.json
 
-# Установка Node.js и зависимостей
 install:
-  - ps: Install-Product node 18  # или 20
+  - ps: Install-Product node 18
   - npm install
-  - npm install -g vite  # Глобальная установка Vite (опционально)
+  - npm install -g vite
 
-# Сборка проекта
 test_script:
-  - npm run build  # Должен запускать 'vite build'
+  - npm run build
 
-# Артефакт - папка dist (Vite по умолчанию использует её)
 artifacts:
   - path: dist\**
-    name: vite-build
+    name: app-build
 
-# Деплой на GitHub Pages
-deploy:
-  provider: github
-  artifact: vite-build  # Должно совпадать с именем артефакта
-  target_branch: gh-pages  # Ветка для GitHub Pages
+deployment:
+  provider: GitHub
+  artifact: app-build
   draft: false
-  on:
-    branch: main  # Деплоить только при пуше в main
   auth_token:
-    secure: Frontend-diplom  # Замените на зашифрованный токен!
+    secure: Frontend-diplom
+  on:
+    branch: main
